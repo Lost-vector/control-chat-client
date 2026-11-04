@@ -1,1 +1,14 @@
-<p>room works!</p>
+@switch (chat.status()) {
+  @case ('connecting') { <p>Establishing connection…</p> }
+  @case ('room_full') { <p>The room is at capacity.</p>}
+  @case ('disconnected') { <p>Connection lost. Reconnecting…</p>}
+  @case ('connected') {
+    <aside>
+      <app-user-list [users]="chat.users()" [meId]="chat.me()?.id" />
+    </aside>
+    <section>
+      <app-message-list [messages]="chat.messages()" [meId]="chat.me()?.id" />
+      <app-message-input (submitted)="chat.send($event)" />
+    </section>
+  }
+}

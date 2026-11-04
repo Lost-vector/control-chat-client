@@ -1,1 +1,3 @@
-<p>message-input works!</p>
+<input #field maxlength="300" placeholder="Transmit message…"
+  (keydown.enter)="submit(field)" />
+<button (click)="submit(field)">Send</button>

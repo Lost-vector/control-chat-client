@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Avatar } from '../avatar/avatar';
+import { ChatMessage } from '../../../core/models';
 
 @Component({
-  imports: [],
+  imports: [Avatar],
   selector: 'app-message-list',
   styleUrl: './message-list.scss',
   templateUrl: './message-list.html',
 })
-export class MessageList {}
+export class MessageList {
+  readonly messages = input.required<ChatMessage[]>();
+  readonly meId = input<string | undefined>();
+}

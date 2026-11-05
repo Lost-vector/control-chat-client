@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #0b0b0c;
+  --concrete: #1a1a1c;    //panel
+  --concrete-2: #2a2a2d;  //borders & dividers
+  --ink: #e9e7e1;         //off-white text
+  --ink-dim: #8d8b86;
+  --hiss: #e0262b;
+  --font-ui: 'Archivo', 'Helvetica Neue', sans-serif;
+  --font-doc: 'IBM Plex Mono', monospace;
+}
+
+* { box-sizing: border-box; border-radius: 0; } // no rounded corners anywhere
+
+html, body { height: 100%; margin: 0 }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: .08rem;
+  overflow: hidden;
+}
+
+// film grain + scanlines
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.6) 100%); //vignette
+}
+
+.doc-meta { 
+  font-family: var(--font-doc);
+  font-size: .7rem;
+  color: var(--ink-dim);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--concrete-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

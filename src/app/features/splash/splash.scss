@@ -1,0 +1,16 @@
+:host {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.logo path {
+  fill: transparent;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-dasharray: 1535;
+  stroke-dashoffset: 1535;
+  animation: draw 2.2s ease forwards, fill 0.8s 1.6s ease-in forwards;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fill { to { fill: var(--ink-dim); stroke: transparent; } }

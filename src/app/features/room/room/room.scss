@@ -1,0 +1,43 @@
+:host {
+  display: grid;
+  grid-template-rows: 5% 1fr 5fr;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--concrete-2);
+}
+
+header span {
+  font-size: 0.9rem;
+}
+
+.chat-window {
+  grid-row-start: 3;
+  display: grid; 
+  grid-template-columns: 280px 1fr;
+  width: 60vw;
+  max-width: 80vw;
+  height: 100vh;
+  align-self: center;
+  justify-self: center;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-width: 0;
+}
+
+.room-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--concrete-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}

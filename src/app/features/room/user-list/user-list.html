@@ -1,6 +1,8 @@
+<header class="personnel">PERSONNEL</header>
+
 @for (user of users(); track user.id) {
-  <article>
+  <div class="entry">
     <app-avatar [avatarId]="user.avatarId" />
-    <strong>{{ user.name }}</strong>
-  </article>
+    <div class="username">{{ user.name }}</div>
+  </div>
 }

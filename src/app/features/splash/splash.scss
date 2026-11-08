@@ -44,12 +44,14 @@
   cursor: pointer;
   position: relative;
   animation: fadeIn 1.8s 1.8s forwards;
-  transition: background 0.15s, color 0.15s;
+  transition: 0.15s;
 }
+
 .enter:hover {
   background: var(--ink);
   color: var(--bg);
 }
+
 .enter::before {
   content: '';
   position: absolute;

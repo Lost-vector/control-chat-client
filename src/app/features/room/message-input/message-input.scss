@@ -1,0 +1,40 @@
+.message-input {
+  display: flex;
+  border-top: 1px solid var(--concrete-2);
+  background: var(--concrete);
+}
+
+input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  padding: 1.1rem 1.5rem;
+  font: 500 0.95rem var(--font-doc);
+  outline: none;
+  text-transform: none;
+}
+
+input:focus {
+  box-shadow: inset 3px 0 0 var(--hiss);
+}
+
+button {
+  padding: 0 2rem;
+  background: none;
+  color: var(--ink);
+  border: 0;
+  border-left: 1px solid var(--concrete-2);
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  // transition: 0.15s;
+}
+
+button:hover:enabled {
+  background: var(--hiss);
+}
+
+button:disabled {
+  color: var(--ink-dim);
+  cursor: default;
+}

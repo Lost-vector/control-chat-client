@@ -1,3 +1,5 @@
-<input #field maxlength="300" placeholder="Transmit message…"
-  (keydown.enter)="submit(field)" />
-<button (click)="submit(field)">Send</button>
+<div class="message-input">
+  <input #field maxlength="300" placeholder=">"
+    (keydown.enter)="submit(field)" />
+  <button (click)="submit(field)">TRANSMIT</button>
+</div>

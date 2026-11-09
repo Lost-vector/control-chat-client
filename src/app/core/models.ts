@@ -8,7 +8,7 @@ export interface ChatMessage {
   id: string;
   author: User;
   text: string;
-  ts: number;
+  timeStamp: number;
 }
 
 export interface ServerToClientEvents {

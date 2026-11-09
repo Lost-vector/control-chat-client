@@ -21,9 +21,8 @@ header span {
   grid-row-start: 3;
   display: grid; 
   grid-template-columns: 280px 1fr;
-  width: 60vw;
-  max-width: 80vw;
-  height: 100vh;
+  width: 80vw;
+  height: 85vh;
   align-self: center;
   justify-self: center;
 }
@@ -34,10 +33,6 @@ header span {
   min-width: 0;
 }
 
-.room-header {
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--concrete-2);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+.main app-message-input {
+  flex-shrink: 0;
 }

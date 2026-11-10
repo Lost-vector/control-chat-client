@@ -8,6 +8,8 @@
   @switch (chat.status()) {
     @case ('connecting') { <p>Establishing connection…</p> }
     @case ('room_full') { <p>The room is at capacity.</p>}
+    @case ('too_many_connections') { <p>Number of connections abnormal. Reduce request number.</p>}
+    @case ('banned') { <p>Entry denied.</p>}
     @case ('disconnected') { <p>Connection lost. Reconnecting…</p>}
     @case ('connected') {
       <aside>

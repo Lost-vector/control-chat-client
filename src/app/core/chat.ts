@@ -4,7 +4,8 @@ import { environment } from '../../environments/environment';
 import type { ChatMessage, ClientToServerEvents, ServerToClientEvents, User } from './models';
 
 type ChatSocket = Socket<ServerToClientEvents, ClientToServerEvents>;
-type Status = 'idle' | 'connecting' | 'connected' | 'room_full' | 'disconnected';
+type Status = 'idle' | 'connecting' | 'connected' | 'room_full' |
+              'too_many_connections' | 'banned' | 'disconnected';
 
 @Service()
 export class Chat {
@@ -14,12 +15,14 @@ export class Chat {
   private readonly _me = signal<User | null>(null);
   private readonly _users = signal<User[]>([]);
   private readonly _messages = signal<ChatMessage[]>([]);
+  private readonly _notice = signal<string | null>(null);
 
   readonly status = this._status.asReadonly();
   readonly me = this._me.asReadonly();
   readonly users = this._users.asReadonly();
   readonly messages = this._messages.asReadonly();
-  readonly userCount = computed(() => this._users().length)
+  readonly notice = this._notice.asReadonly();
+  readonly userCount = computed(() => this._users().filter(u => u.id !== 'board').length)
 
   connect(): void {
     if (this.socket) return;
@@ -41,6 +44,11 @@ export class Chat {
 
     this.socket.on('message', (message) =>
       this._messages.update((list) => [...list, message]));
+
+    this.socket.on('room:notice', ({ code }) => {
+      this._notice.set(code === 'rate_limited' ? 'Transmission rate exceeded.' : 'Invalid transmission.');
+      setTimeout(() => this._notice.set(null), 3000);
+    })
 
     this.socket.on('room:error', ({ code }) => this._status.set(code));
 

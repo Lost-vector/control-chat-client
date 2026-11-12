@@ -11,12 +11,14 @@ type Status = 'idle' | 'connecting' | 'connected' | 'room_full' |
 export class Chat {
   private socket: ChatSocket | null = null;
 
+  private readonly _slowConnect = signal(false);
   private readonly _status = signal<Status>('idle');
   private readonly _me = signal<User | null>(null);
   private readonly _users = signal<User[]>([]);
   private readonly _messages = signal<ChatMessage[]>([]);
   private readonly _notice = signal<string | null>(null);
 
+  readonly slowConnect = this._slowConnect.asReadonly();
   readonly status = this._status.asReadonly();
   readonly me = this._me.asReadonly();
   readonly users = this._users.asReadonly();
@@ -29,7 +31,12 @@ export class Chat {
     this._status.set('connecting');
     this.socket = io(environment.socketUrl);
 
+    setTimeout(() => {
+      if (this._status() === 'connecting') this._slowConnect.set(true);
+    }, 4000);
+
     this.socket.on('joined', ({ you, users, history }) => {
+      this._slowConnect.set(false);
       this._me.set(you);
       this._users.set(users);
       this._messages.set(history);

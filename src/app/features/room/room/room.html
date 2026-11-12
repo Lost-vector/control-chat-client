@@ -6,7 +6,12 @@
 
 <div class="chat-window">
   @switch (chat.status()) {
-    @case ('connecting') { <p>Establishing connection…</p> }
+    @case ('connecting') {
+      <p>Establishing connection…</p>
+      @if (chat.slowConnect()) {
+        <p>The Bureau's servers are waking up. This can take up to a minute.</p>
+      }
+    }
     @case ('room_full') { <p>The room is at capacity.</p>}
     @case ('too_many_connections') { <p>Number of connections abnormal. Reduce request number.</p>}
     @case ('banned') { <p>Entry denied.</p>}

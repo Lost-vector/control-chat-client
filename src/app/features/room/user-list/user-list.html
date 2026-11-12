@@ -1,1 +1,8 @@
-<p>user-list works!</p>
+<header class="personnel">PERSONNEL</header>
+
+@for (user of users(); track user.id) {
+  <div class="entry">
+    <app-avatar [avatarId]="user.avatarId" />
+    <div class="username">{{ user.name }}</div>
+  </div>
+}

@@ -1,0 +1,64 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 50vh;
+  max-height: 500px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  // border-bottom: 1px solid var(--concrete-2);
+}
+
+article {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  max-width: 75%;
+  align-self: flex-start;
+  padding: 0 0.75rem;
+  border-bottom: 1px solid var(--concrete-2);
+}
+
+article.mine {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+  text-align: right;
+  border-left: 3px solid var(--ink);
+}
+
+.content {
+  min-width: 0;
+}
+
+.head {
+  font: 0.7rem var(--font-doc);
+  color: var(--ink-dim);
+}
+
+.content p {
+  text-transform: none;
+  letter-spacing: 0.02rem;
+  margin-top: 0.3rem;
+  line-height: 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+.msg.me {
+  border-left: 3px solid var(--ink);
+}
+
+.msg.board {
+  border-left: 3px solid var(--ink);
+}
+
+.msg.board .head {
+  color: var(--hiss);
+}

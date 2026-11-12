@@ -1,0 +1,64 @@
+:host {
+  display: grid;
+  place-items: center;
+  height: 50vh;
+  width: 100vw;
+  margin-top: 20vh;
+}
+
+.logo {
+  fill: transparent;
+  stroke: var(--ink-dim);
+  stroke-width: 2;
+  stroke-dasharray: 1535;
+  stroke-dashoffset: 1535;
+  animation: draw 2.2s ease forwards;
+}
+
+.logo-shadow {
+  @extend .logo;
+  stroke-dasharray: 1135;
+  stroke-dashoffset: 1135;
+  animation: draw 3.2s ease forwards, fill 0.4s ease forwards 1.8s;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fill { to { fill: #373738; } }
+
+.title {
+  letter-spacing: 0.5rem;
+  opacity: 0;
+  animation: spread 4.6s ease forwards;
+  padding-bottom: 3rem;
+}
+@keyframes spread { to { opacity: 1;} }
+
+.enter {
+  opacity: 0;
+  margin-top: 3rem;
+  padding: 1rem 2.5rem;
+  background: none;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  font: 600 0.9rem var(--font-ui);
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+  position: relative;
+  animation: fadeIn 1.8s 1.8s forwards;
+  transition: 0.15s;
+}
+
+.enter:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.enter::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  bottom: -1px;
+  width: 4px;
+  background: var(--hiss);
+}
+@keyframes fadeIn { to { opacity: 1; } }

@@ -1,0 +1,56 @@
+:host {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--concrete-2);
+}
+
+header span {
+  font-size: 0.9rem;
+}
+
+footer {
+  grid-row-start: 3;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.6rem;
+  border-top: 1px solid var(--concrete-2);
+}
+
+footer a {
+  color: var(--ink-dim);
+  text-decoration: none;
+}
+
+.chat-window {
+  grid-row-start: 2;
+  overflow: auto;
+  display: grid; 
+  grid-template-columns: 280px 1fr;
+  width: 80vw;
+  height: 85vh;
+  align-items: center;
+  justify-self: center;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-width: 0;
+}
+
+.main app-message-input {
+  flex-shrink: 0;
+}

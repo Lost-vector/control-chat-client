@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './avatar.scss',
   templateUrl: './avatar.html',
 })
-export class Avatar {}
+export class Avatar {
+  readonly avatarId = input.required<number>()
+}

@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  height: 500px;
+  border-right: 1px solid var(--concrete-2);
+  background: var(--concrete);
+  border-right: 3px solid var(--ink-dim);
+}
+
+header {
+  letter-spacing: 0.5rem;
+  padding: 1rem 0 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+header::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--ink);
+  margin-top: 12px;
+}
+
+.entry {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+
+.username {
+  font-family: var(--font-doc);
+}

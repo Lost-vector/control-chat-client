@@ -1,1 +1,30 @@
-<p>room works!</p>
+<header class="doc-meta">
+  <div>OLDEST HOUSE // ROOM 0420</div>
+  <span>SECTOR: EXECUTIVE FLOOR // CLEARANCE: LEVEL 2</span>
+  <div>● {{ chat.userCount() }} / 20 PRESENT</div>
+</header>
+
+<div class="chat-window">
+  @switch (chat.status()) {
+    @case ('connecting') { <p>Establishing connection…</p> }
+    @case ('room_full') { <p>The room is at capacity.</p>}
+    @case ('too_many_connections') { <p>Number of connections abnormal. Reduce request number.</p>}
+    @case ('banned') { <p>Entry denied.</p>}
+    @case ('disconnected') { <p>Connection lost. Reconnecting…</p>}
+    @case ('connected') {
+      <aside>
+        <app-user-list [users]="chat.users()" [meId]="chat.me()?.id" />
+      </aside>
+      <section class="main">
+        <app-message-list [messages]="chat.messages()" [meId]="chat.me()?.id" />
+        <app-message-input (submitted)="chat.send($event)" />
+      </section>
+    }
+  }
+</div>
+
+<footer class="doc-meta">
+  <p>Designed by Franck Alonso. Icons by 
+    <a target="_blank" href="https://icons8.com/"> Icons8</a>
+  </p>
+</footer>

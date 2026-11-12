@@ -1,1 +1,1 @@
-export const environment = { socketUrl: 'https://BACKEND-URL' };
+export const environment = { socketUrl: 'https://control-chat-server.onrender.com' };

@@ -1,0 +1,4 @@
+/*
+  Content-Security-Policy: default-src 'self'; connect-src 'self' https://YOUR-SERVICE.onrender.com wss://YOUR-SERVICE.onrender.com; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
